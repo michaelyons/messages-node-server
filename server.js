@@ -24,6 +24,15 @@ server.on('request', (request, response) => {
   }
 });
 
+function addMessage(message, response) {
+  message.push(message);
+  response.writeHead(200, {
+    'Content-Type': 'applcation-json'
+  });
+  response.write(JSON.stringify(message));
+  response.end();
+}
+
 function getAllMessages(response) {
   response.writeHead(200, {
     'Content-Type': 'application/json'
